@@ -5,6 +5,10 @@
   "author": "",
   "private": true,
   "license": "UNLICENSED",
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "main": "dist/main.js",
   "scripts": {
     "prebuild": "rimraf dist",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
@@ -30,6 +34,7 @@
     "rxjs": "^6.5.4"
   },
   "devDependencies": {
+    "@google-cloud/nodejs-repo-tools": "^3.0.0",
     "@nestjs/cli": "^7.0.0",
     "@nestjs/schematics": "^7.0.0",
     "@nestjs/testing": "^7.0.0",
