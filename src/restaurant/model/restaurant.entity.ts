@@ -7,4 +7,10 @@ export class Restaurant extends BaseEntity {
 
   @Column({ nullable: true })
   name: string;
+
+  @Column({ nullable: true })
+  address: string;
+
+  @Column({ nullable: true })
+  food: string;
 }

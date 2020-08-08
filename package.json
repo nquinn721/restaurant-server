@@ -6,6 +6,8 @@
   "url": "https://bolt-schedular-backend.azurewebsites.net/",
   "license": "MIT",
   "scripts": {
+    "deploy": "gcloud app deploy",
+    "gcp-build": "npm run build",
     "prebuild": "rimraf dist",
     "build": "nest build",
     "docs": "npx compodoc -p tsconfig.json -s",
