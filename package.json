@@ -12,7 +12,7 @@
     "build": "tsc -p tsconfig.build.json",
     "docs": "npx compodoc -p tsconfig.json -s",
     "format": "prettier --write \"apps/**/*.ts\" \"libs/**/*.ts\"",
-    "start": "nest start",
+    "start": "NODE_ENV=production node dist/main",
     "start:dev": "NODE_ENV=develop nest start --watch",
     "start:test": "NODE_ENV=test nest start --watch",
     "start:debug": "nest start --debug --watch",
