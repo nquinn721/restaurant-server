@@ -9,7 +9,7 @@
     "deploy": "gcloud app deploy",
     "gcp-build": "npm run build",
     "prebuild": "rimraf dist",
-    "build": "nest build",
+    "build": "tsc -p tsconfig.build.json",
     "docs": "npx compodoc -p tsconfig.json -s",
     "format": "prettier --write \"apps/**/*.ts\" \"libs/**/*.ts\"",
     "start": "nest start",
