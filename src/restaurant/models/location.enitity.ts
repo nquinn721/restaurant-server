@@ -16,7 +16,13 @@ export class Location extends BaseEntity {
   name: string;
 
   @Column({ nullable: true })
-  address: string;
+  address1: string;
+
+  @Column({ nullable: true })
+  address2: string;
+
+  @Column({ nullable: true })
+  phone: string;
 
   @CreateDateColumn() public createdAt: Date;
   @UpdateDateColumn() public updatedAt: Date;
