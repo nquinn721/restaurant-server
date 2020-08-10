@@ -1,2 +1,2 @@
 runtime: nodejs10
-cloud_sql_instances: elevated-column-284822
+cloud_sql_instances: elevated-column-284822:us-east1:restaurant
