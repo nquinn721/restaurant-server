@@ -27,6 +27,11 @@ export class CategoryController {
   model: {
     type: Item,
   },
+  query: {
+    join: {
+      category: {},
+    },
+  },
 })
 @Controller('item')
 export class ItemController {
