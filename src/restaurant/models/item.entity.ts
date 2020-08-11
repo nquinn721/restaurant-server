@@ -20,6 +20,9 @@ export class Item extends BaseEntity {
   @Column({ type: 'float', nullable: true })
   cost: number;
 
+  @Column({ nullable: true })
+  description: string;
+
   @ManyToOne(type => Category)
   category: Category;
 
