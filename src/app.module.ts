@@ -21,10 +21,6 @@ const typeormOptions: any = {
   synchronize: true,
 };
 
-if (process.env.NODE_ENV === 'production')
-  typeormOptions.extra = {
-    socketPath: `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`,
-  };
 @Module({
   imports: [TypeOrmModule.forRoot(typeormOptions), RestaurantModule],
   controllers: [AppController],
