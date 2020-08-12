@@ -9,6 +9,9 @@ import { Item } from './restaurant/models/item.entity';
 import { Modification } from './restaurant/models/modification.entity';
 import { Side } from './restaurant/models/side.entitity';
 import { Location } from './restaurant/models/location.enitity';
+import { AuthModule } from './auth/auth.module';
+import { UserModule } from './user/user.module';
+import { User } from './user/models/user.entity';
 const typeormOptions: any = {
   type: 'mysql',
   host: '35.237.213.78',
@@ -16,13 +19,18 @@ const typeormOptions: any = {
   username: 'root',
   password: 'Restaurant1234',
   database: 'restaurant',
-  entities: [Category, Item, Location, Modification, Side],
+  entities: [Category, Item, Location, Modification, Side, User],
   logging: false,
   synchronize: true,
 };
 
 @Module({
-  imports: [TypeOrmModule.forRoot(typeormOptions), RestaurantModule],
+  imports: [
+    TypeOrmModule.forRoot(typeormOptions),
+    RestaurantModule,
+    AuthModule,
+    UserModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
