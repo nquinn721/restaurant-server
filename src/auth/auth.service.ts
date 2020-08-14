@@ -23,17 +23,24 @@ export class AuthService {
   }
 
   // Used for jwt strategy
-  async getUser(email: string) {
-    console.log('get user');
+  async getUser(email: string, password?: string) {
+    let user: any = await this.usersService.findOne({ email });
 
-    const user = await this.usersService.findOne({ email });
-    const { password, ...result } = user;
-    return result;
+    console.log('get user', user);
+
+    if (!user) user = await this.usersService.create({ email, password });
+
+    if (user) {
+      const { password, ...result } = user;
+      return result;
+    }
+  }
+
+  async validateGoogleAuth(email: string, password: string) {
+    return await this.getUser(email, password);
   }
 
   async login(user: any) {
-    console.log('login', user);
-
     const payload = { email: user.email };
     return {
       access_token: this.jwtService.sign(payload),
