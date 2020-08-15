@@ -12,9 +12,9 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
   // This adds to the request object
   async validate(username: string, password: string): Promise<any> {
     let user;
-    if (password !== 'googleauth')
+    if (password !== 'googleauth' && password !== 'fbauth')
       user = await this.authService.validateUser(username, password);
-    else user = await this.authService.validateGoogleAuth(username, password);
+    else user = await this.authService.validateOauth(username, password);
 
     if (!user) {
       throw new UnauthorizedException();

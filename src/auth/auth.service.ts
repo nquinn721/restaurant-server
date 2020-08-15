@@ -26,8 +26,6 @@ export class AuthService {
   async getUser(email: string, password?: string) {
     let user: any = await this.usersService.findOne({ email });
 
-    console.log('get user', user);
-
     if (!user) user = await this.usersService.create({ email, password });
 
     if (user) {
@@ -36,7 +34,7 @@ export class AuthService {
     }
   }
 
-  async validateGoogleAuth(email: string, password: string) {
+  async validateOauth(email: string, password: string) {
     return await this.getUser(email, password);
   }
 
