@@ -30,10 +30,11 @@ var typeormOptions = {
     entities: [category_entity_1.Category, item_entity_1.Item, location_enitity_1.Location, modification_entity_1.Modification, side_entitity_1.Side, user_entity_1.User],
     logging: false,
     synchronize: true,
-    extra: {
-        socketPath: '/cloudsql/elevated-column-284822:us-east1:restaurant'
-    }
+    extra: {}
 };
+if (process.env.NODE_ENV === 'production')
+    typeormOptions.extra.socketPath =
+        '/cloudsql/elevated-column-284822:us-east1:restaurant';
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }

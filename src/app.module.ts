@@ -22,10 +22,12 @@ const typeormOptions: any = {
   entities: [Category, Item, Location, Modification, Side, User],
   logging: false,
   synchronize: true,
-  extra: {
-    socketPath: '/cloudsql/elevated-column-284822:us-east1:restaurant',
-  },
+  extra: {},
 };
+
+if (process.env.NODE_ENV === 'production')
+  typeormOptions.extra.socketPath =
+    '/cloudsql/elevated-column-284822:us-east1:restaurant';
 
 @Module({
   imports: [
