@@ -52,6 +52,11 @@ export class LocationController {
   model: {
     type: Modification,
   },
+  query: {
+    join: {
+      item: {},
+    },
+  },
 })
 @Controller('modification')
 export class ModificationController {

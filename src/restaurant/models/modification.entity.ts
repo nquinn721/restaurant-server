@@ -5,7 +5,9 @@ import {
   BaseEntity,
   CreateDateColumn,
   UpdateDateColumn,
+  ManyToOne,
 } from 'typeorm';
+import { Item } from './item.entity';
 
 @Entity('modification')
 export class Modification extends BaseEntity {
@@ -14,6 +16,9 @@ export class Modification extends BaseEntity {
 
   @Column({ nullable: true })
   name: string;
+
+  @ManyToOne(type => Item)
+  item: any;
 
   @CreateDateColumn() public createdAt: Date;
   @UpdateDateColumn() public updatedAt: Date;

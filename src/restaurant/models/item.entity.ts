@@ -6,8 +6,10 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   ManyToOne,
+  OneToMany,
 } from 'typeorm';
 import { Category } from './category.entity';
+import { Modification } from './modification.entity';
 
 @Entity('item')
 export class Item extends BaseEntity {
@@ -25,6 +27,12 @@ export class Item extends BaseEntity {
 
   @ManyToOne(type => Category)
   category: Category;
+
+  @OneToMany(
+    type => Modification,
+    modification => modification.item,
+  )
+  modifications: any[];
 
   @CreateDateColumn() public createdAt: Date;
   @UpdateDateColumn() public updatedAt: Date;
