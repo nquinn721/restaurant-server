@@ -7,6 +7,7 @@ import {
   UpdateDateColumn,
   ManyToOne,
   OneToMany,
+  OneToOne,
 } from 'typeorm';
 import { User } from 'src/user/models/user.entity';
 
@@ -15,8 +16,7 @@ export class Order extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ nullable: true })
-  @ManyToOne(type => User)
+  @OneToOne(type => User)
   user: User;
 
   @CreateDateColumn() public createdAt: Date;

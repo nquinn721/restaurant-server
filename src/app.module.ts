@@ -13,6 +13,9 @@ import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
 import { User } from './user/models/user.entity';
 import { OrderModule } from './order/order.module';
+import { Order } from './order/models/order.entity';
+import { OrderItemMod } from './order/models/orderItemMod.entity';
+import { OrderItem } from './order/models/orderItem.entity';
 const typeormOptions: any = {
   type: 'mysql',
   host: '35.237.213.78',
@@ -20,7 +23,17 @@ const typeormOptions: any = {
   username: 'root',
   password: 'Restaurant1234',
   database: 'restaurant',
-  entities: [Category, Item, Location, Modification, Side, User],
+  entities: [
+    Category,
+    Item,
+    Location,
+    Modification,
+    Side,
+    User,
+    Order,
+    OrderItemMod,
+    OrderItem,
+  ],
   logging: false,
   synchronize: true,
   extra: {},

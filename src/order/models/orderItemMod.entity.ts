@@ -19,11 +19,9 @@ export class OrderItemMod extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ nullable: true })
   @ManyToOne(type => Modification)
   modification: Modification;
 
-  @Column({ nullable: true })
   @ManyToOne(type => OrderItem)
   orderItem: OrderItem;
 
