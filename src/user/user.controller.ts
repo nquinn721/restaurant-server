@@ -41,7 +41,7 @@ export class UserController {
   }
   @Get('success')
   success() {
-    console.log('success');
+    console.log('successss');
   }
 
   @Get('cancel')
