@@ -12,6 +12,7 @@ import { Location } from './restaurant/models/location.enitity';
 import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
 import { User } from './user/models/user.entity';
+import { OrderModule } from './order/order.module';
 const typeormOptions: any = {
   type: 'mysql',
   host: '35.237.213.78',
@@ -35,6 +36,7 @@ if (process.env.NODE_ENV === 'production')
     RestaurantModule,
     AuthModule,
     UserModule,
+    OrderModule,
   ],
   controllers: [AppController],
   providers: [AppService],
