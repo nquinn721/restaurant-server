@@ -16,6 +16,7 @@ import { OrderModule } from './order/order.module';
 import { Order } from './order/models/order.entity';
 import { OrderItemMod } from './order/models/orderItemMod.entity';
 import { OrderItem } from './order/models/orderItem.entity';
+import { OrderItemSide } from './order/models/orderItemSide.entity';
 const typeormOptions: any = {
   type: 'mysql',
   host: '35.237.213.78',
@@ -33,6 +34,7 @@ const typeormOptions: any = {
     Order,
     OrderItemMod,
     OrderItem,
+    OrderItemSide,
   ],
   logging: false,
   synchronize: true,
