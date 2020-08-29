@@ -10,6 +10,11 @@ export class AppController {
     private readonly userService: UserService,
   ) {}
 
+  @Get()
+  home(): string {
+    return 'Home';
+  }
+
   @UseGuards(AuthGuard('local'))
   @Post('auth/login')
   async login(@Body() user: any, @Req() req) {
