@@ -5,11 +5,9 @@ import {
   BaseEntity,
   CreateDateColumn,
   UpdateDateColumn,
-  ManyToOne,
-  OneToMany,
   OneToOne,
 } from 'typeorm';
-import { User } from 'src/user/models/user.entity';
+import { User } from '../../user/models/user.entity';
 
 @Entity('order')
 export class Order extends BaseEntity {

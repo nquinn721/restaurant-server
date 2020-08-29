@@ -8,7 +8,6 @@ import {
   ManyToOne,
   OneToMany,
 } from 'typeorm';
-import { User } from 'src/user/models/user.entity';
 import { Item } from 'src/restaurant/models/item.entity';
 import { Order } from './order.entity';
 
