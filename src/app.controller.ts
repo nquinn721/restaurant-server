@@ -12,7 +12,7 @@ export class AppController {
 
   @Get()
   home(): string {
-    return 'Home';
+    return 'Homes';
   }
 
   @UseGuards(AuthGuard('local'))
