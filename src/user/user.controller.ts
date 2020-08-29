@@ -33,8 +33,9 @@ export class UserController {
         },
       ],
       mode: 'payment',
-      success_url: 'http://localhost:3000/user/success',
-      cancel_url: 'http://localhost:3000/user/cancel',
+      success_url:
+        'https://elevated-column-284822.ue.r.appspot.com/user/success',
+      cancel_url: 'https://elevated-column-284822.ue.r.appspot.com/user/cancel',
     });
     res.json({ id: session.id });
   }
