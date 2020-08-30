@@ -43,7 +43,7 @@ const typeormOptions: any = {
 
 if (process.env.NODE_ENV === 'production')
   typeormOptions.extra.socketPath =
-    '/cloudsql/elevated-column-284822:us-east1:restaurant';
+    '/cloudsql/restaurant-server-288018:us-east1:restaurant';
 
 @Module({
   imports: [
