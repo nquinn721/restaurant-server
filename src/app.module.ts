@@ -19,7 +19,7 @@ import { OrderItem } from './order/models/orderItem.entity';
 import { OrderItemSide } from './order/models/orderItemSide.entity';
 const typeormOptions: any = {
   type: 'mysql',
-  host: '35.237.213.78',
+  host: '104.196.139.6',
   port: 3306,
   username: 'root',
   password: 'Restaurant1234',
