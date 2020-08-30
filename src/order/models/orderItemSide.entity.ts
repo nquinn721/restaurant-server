@@ -9,7 +9,7 @@ import {
   OneToMany,
   OneToOne,
 } from 'typeorm';
-import { Side } from 'src/restaurant/models/side.entitity';
+import { Side } from '../../restaurant/models/side.entitity';
 import { OrderItem } from './orderItem.entity';
 
 @Entity('orderitemside')

@@ -8,7 +8,7 @@ import {
   ManyToOne,
 } from 'typeorm';
 import { OrderItem } from './orderItem.entity';
-import { Modification } from 'src/restaurant/models/modification.entity';
+import { Modification } from '../../restaurant/models/modification.entity';
 
 @Entity('orderitemmod')
 export class OrderItemMod extends BaseEntity {

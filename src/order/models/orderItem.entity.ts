@@ -8,7 +8,7 @@ import {
   ManyToOne,
   OneToMany,
 } from 'typeorm';
-import { Item } from 'src/restaurant/models/item.entity';
+import { Item } from '../../restaurant/models/item.entity';
 import { Order } from './order.entity';
 
 @Entity('orderitem')
