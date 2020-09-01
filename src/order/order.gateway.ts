@@ -1,8 +1,15 @@
-import { WebSocketGateway, WebSocketServer } from '@nestjs/websockets';
+import {
+  WebSocketGateway,
+  WebSocketServer,
+  OnGatewayConnection,
+} from '@nestjs/websockets';
 import { Server } from 'socket.io';
 
 @WebSocketGateway()
-export class OrderGateway {
+export class OrderGateway implements OnGatewayConnection {
+  handleConnection() {
+    console.log('connected');
+  }
   @WebSocketServer()
   server!: Server;
 }
