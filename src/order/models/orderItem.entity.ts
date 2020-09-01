@@ -11,6 +11,7 @@ import {
 import { Item } from '../../restaurant/models/item.entity';
 import { Order } from './order.entity';
 import { OrderItemMod } from './orderItemMod.entity';
+import { OrderItemSide } from './orderItemSide.entity';
 
 @Entity('orderitem')
 export class OrderItem extends BaseEntity {
@@ -21,19 +22,25 @@ export class OrderItem extends BaseEntity {
   item: Item;
 
   @ManyToOne(type => Order)
-  order: Order;
+  order: any;
 
   @OneToMany(
     type => OrderItemMod,
     orderitemmod => orderitemmod.orderItem,
+    {
+      cascade: ['insert', 'update', 'remove'],
+    },
   )
   mods: any[];
 
   @OneToMany(
-    type => OrderItemMod,
+    type => OrderItemSide,
     orderitemside => orderitemside.orderItem,
+    {
+      cascade: ['insert', 'update', 'remove'],
+    },
   )
-  side: any[];
+  sides: any[];
 
   @CreateDateColumn() public createdAt: Date;
   @UpdateDateColumn() public updatedAt: Date;

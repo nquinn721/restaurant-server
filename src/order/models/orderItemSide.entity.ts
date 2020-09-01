@@ -20,7 +20,7 @@ export class OrderItemSide extends BaseEntity {
   @ManyToOne(type => OrderItem)
   orderItem: OrderItem;
 
-  @OneToOne(type => Side)
+  @ManyToOne(type => Side)
   side: Side;
 
   @CreateDateColumn() public createdAt: Date;

@@ -24,6 +24,9 @@ export class Order extends BaseEntity {
   @OneToMany(
     type => OrderItem,
     orderitem => orderitem.order,
+    {
+      cascade: ['insert', 'update', 'remove'],
+    },
   )
   @JoinColumn()
   items: any[];

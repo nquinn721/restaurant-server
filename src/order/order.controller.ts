@@ -9,7 +9,15 @@ import { OrderService } from './order.service';
   },
   query: {
     join: {
-      items: {},
+      items: {
+        eager: true,
+      },
+      'items.mods': {
+        eager: true,
+      },
+      'items.sides': {
+        eager: true,
+      },
     },
   },
 })
