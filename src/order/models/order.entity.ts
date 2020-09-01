@@ -7,6 +7,7 @@ import {
   UpdateDateColumn,
   OneToOne,
   OneToMany,
+  JoinTable,
 } from 'typeorm';
 import { User } from '../../user/models/user.entity';
 import { OrderItem } from './orderItem.entity';
@@ -23,6 +24,7 @@ export class Order extends BaseEntity {
     type => OrderItem,
     orderitem => orderitem.order,
   )
+  @JoinTable({ name: 'orderitem' })
   items: any[];
 
   @CreateDateColumn() public createdAt: Date;
