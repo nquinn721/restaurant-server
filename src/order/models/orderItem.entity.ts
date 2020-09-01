@@ -18,6 +18,12 @@ export class OrderItem extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
+  @Column({ nullable: true })
+  count: number;
+
+  @Column({ nullable: true })
+  nickname: string;
+
   @ManyToOne(type => Item)
   item: Item;
 

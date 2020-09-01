@@ -12,10 +12,19 @@ import { OrderService } from './order.service';
       items: {
         eager: true,
       },
+      'items.item': {
+        eager: true,
+      },
       'items.mods': {
         eager: true,
       },
+      'items.mods.modification': {
+        eager: true,
+      },
       'items.sides': {
+        eager: true,
+      },
+      'items.sides.side': {
         eager: true,
       },
     },
