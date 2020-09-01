@@ -40,9 +40,9 @@ const typeormOptions: any = {
   extra: {},
 };
 
-if (process.env.NODE_ENV === 'production')
-  typeormOptions.extra.socketPath =
-    '/cloudsql/restaurant-server-288018:us-east1:restaurant';
+// if (process.env.NODE_ENV === 'production')
+//   typeormOptions.extra.socketPath =
+//     '/cloudsql/restaurant-server-288018:us-east1:restaurant';
 
 @Module({
   imports: [
