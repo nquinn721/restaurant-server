@@ -9,8 +9,7 @@ import { OrderService } from './order.service';
   },
   query: {
     join: {
-      orderItem: {},
-      orderItemMod: {},
+      items: {},
     },
   },
 })
