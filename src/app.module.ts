@@ -17,6 +17,7 @@ import { Order } from './order/models/order.entity';
 import { OrderItemMod } from './order/models/orderItemMod.entity';
 import { OrderItem } from './order/models/orderItem.entity';
 import { OrderItemSide } from './order/models/orderItemSide.entity';
+import { AppGateway } from './app.gateway';
 const typeormOptions: any = {
   type: 'mysql',
   host: '104.196.139.6',
@@ -54,6 +55,6 @@ if (process.env.NODE_ENV === 'production')
     OrderModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, AppGateway],
 })
 export class AppModule {}
