@@ -6,13 +6,14 @@ import { Order } from './models/order.entity';
 import { OrderItem } from './models/orderItem.entity';
 import { OrderItemMod } from './models/orderItemMod.entity';
 import { OrderItemSide } from './models/orderItemSide.entity';
+import { OrderGateway } from './order.gateway';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([Order, OrderItem, OrderItemMod, OrderItemSide]),
   ],
   controllers: [OrderController],
-  providers: [OrderService],
+  providers: [OrderService, OrderGateway],
   exports: [OrderService],
 })
 export class OrderModule {}

@@ -1,7 +1,15 @@
 import { Controller } from '@nestjs/common';
-import { Crud } from '@nestjsx/crud';
+import {
+  Crud,
+  CrudController,
+  Override,
+  ParsedRequest,
+  CrudRequest,
+  ParsedBody,
+} from '@nestjsx/crud';
 import { Order } from './models/order.entity';
 import { OrderService } from './order.service';
+import { OrderGateway } from './order.gateway';
 
 @Crud({
   model: {
@@ -31,6 +39,20 @@ import { OrderService } from './order.service';
   },
 })
 @Controller('order')
-export class OrderController {
-  constructor(public service: OrderService) {}
+export class OrderController implements CrudController<Order> {
+  constructor(
+    public service: OrderService,
+    private readonly gateway: OrderGateway,
+  ) {}
+
+  get base(): CrudController<Order> {
+    return this;
+  }
+
+  @Override('createOneBase')
+  async createOne(@ParsedRequest() req: CrudRequest, @ParsedBody() dto: Order) {
+    const order = await this.base.createOneBase(req, dto);
+    this.gateway.server.emit('order', order);
+    return order;
+  }
 }

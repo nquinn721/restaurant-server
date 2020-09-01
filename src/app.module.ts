@@ -1,8 +1,7 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
-import { typeOrmConfig } from '../typeorm.config';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { RestaurantModule } from './restaurant/restaurant.module';
 import { Category } from './restaurant/models/category.entity';
 import { Item } from './restaurant/models/item.entity';
@@ -17,7 +16,6 @@ import { Order } from './order/models/order.entity';
 import { OrderItemMod } from './order/models/orderItemMod.entity';
 import { OrderItem } from './order/models/orderItem.entity';
 import { OrderItemSide } from './order/models/orderItemSide.entity';
-import { AppGateway } from './app.gateway';
 const typeormOptions: any = {
   type: 'mysql',
   host: '104.196.139.6',
@@ -55,6 +53,6 @@ if (process.env.NODE_ENV === 'production')
     OrderModule,
   ],
   controllers: [AppController],
-  providers: [AppService, AppGateway],
+  providers: [AppService],
 })
 export class AppModule {}
