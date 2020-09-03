@@ -23,6 +23,9 @@ export class Modification extends BaseEntity {
   @Column({ type: 'float', nullable: true })
   cost: number;
 
+  @Column({ nullable: true })
+  type: string;
+
   @CreateDateColumn() public createdAt: Date;
   @UpdateDateColumn() public updatedAt: Date;
 }
