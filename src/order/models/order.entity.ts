@@ -13,6 +13,10 @@ import {
 import { User } from '../../user/models/user.entity';
 import { OrderItem } from './orderItem.entity';
 
+export enum Status {
+  RECIEVED = 'Recieved',
+}
+
 @Entity('order')
 export class Order extends BaseEntity {
   @PrimaryGeneratedColumn()
@@ -30,6 +34,9 @@ export class Order extends BaseEntity {
   )
   @JoinColumn()
   items: any[];
+
+  @Column({ type: 'enum', enum: Status, default: Status.RECIEVED })
+  status: string;
 
   @CreateDateColumn() public createdAt: Date;
   @UpdateDateColumn() public updatedAt: Date;
