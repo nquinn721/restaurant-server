@@ -20,6 +20,9 @@ export class Modification extends BaseEntity {
   @ManyToOne(type => Item)
   item: any;
 
+  @Column({ type: 'float', nullable: true })
+  cost: number;
+
   @CreateDateColumn() public createdAt: Date;
   @UpdateDateColumn() public updatedAt: Date;
 }

@@ -51,13 +51,7 @@ export class OrderController implements CrudController<Order> {
 
   @Override('createOneBase')
   async createOne(@ParsedRequest() req: CrudRequest, @ParsedBody() dto: Order) {
-    console.log('000');
-    console.log('000');
-    console.log('000');
-    console.log('000');
-
     const order = await this.base.createOneBase(req, dto);
-    console.log(order);
     this.gateway.server.emit('order', order);
     return order;
   }
