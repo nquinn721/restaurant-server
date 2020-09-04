@@ -8,6 +8,7 @@ import {
   ManyToOne,
 } from 'typeorm';
 import { Item } from './item.entity';
+import { ModificationType } from './modificationType.entity';
 
 @Entity('modification')
 export class Modification extends BaseEntity {
@@ -23,8 +24,11 @@ export class Modification extends BaseEntity {
   @Column({ type: 'float', nullable: true })
   cost: number;
 
-  @Column({ nullable: true })
-  type: string;
+  @ManyToOne(
+    type => ModificationType,
+    modificationType => modificationType.mod,
+  )
+  type: any;
 
   @CreateDateColumn() public createdAt: Date;
   @UpdateDateColumn() public updatedAt: Date;

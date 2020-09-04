@@ -7,10 +7,12 @@ import {
   LocationService,
   ModificationService,
   SideService,
+  ModificationTypeService,
 } from './restaurant.service';
 import { Item } from './models/item.entity';
 import { Location } from './models/location.enitity';
 import { Modification } from './models/modification.entity';
+import { ModificationType } from './models/modificationType.entity';
 import { Side } from './models/side.entitity';
 
 @Crud({
@@ -30,6 +32,7 @@ export class CategoryController {
   query: {
     join: {
       category: {},
+      mods: {},
     },
   },
 })
@@ -55,12 +58,30 @@ export class LocationController {
   query: {
     join: {
       item: {},
+      type: {
+        eager: true,
+      },
     },
   },
 })
 @Controller('modification')
 export class ModificationController {
   constructor(public service: ModificationService) {}
+}
+
+@Crud({
+  model: {
+    type: ModificationType,
+  },
+  query: {
+    join: {
+      item: {},
+    },
+  },
+})
+@Controller('modification-type')
+export class ModificationTypeController {
+  constructor(public service: ModificationTypeService) {}
 }
 
 @Crud({

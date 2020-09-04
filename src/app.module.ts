@@ -17,6 +17,7 @@ import { OrderItemMod } from './order/models/orderItemMod.entity';
 import { OrderItem } from './order/models/orderItem.entity';
 import { OrderItemSide } from './order/models/orderItemSide.entity';
 import { OrderPayment } from './order/models/orderPayment.entity';
+import { ModificationType } from './restaurant/models/modificationType.entity';
 const typeormOptions: any = {
   type: 'mysql',
   host: '104.196.139.6',
@@ -29,6 +30,7 @@ const typeormOptions: any = {
     Item,
     Location,
     Modification,
+    ModificationType,
     Side,
     User,
     Order,

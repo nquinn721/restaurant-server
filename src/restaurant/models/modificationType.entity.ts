@@ -8,34 +8,21 @@ import {
   ManyToOne,
   OneToMany,
 } from 'typeorm';
-import { Category } from './category.entity';
 import { Modification } from './modification.entity';
 
-@Entity('item')
-export class Item extends BaseEntity {
+@Entity('modificationtype')
+export class ModificationType extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column({ nullable: true })
   name: string;
 
-  @Column({ type: 'float', nullable: true })
-  cost: number;
-
-  @Column({ nullable: true })
-  description: string;
-
-  @ManyToOne(type => Category)
-  category: Category;
-
   @OneToMany(
     type => Modification,
-    modification => modification.item,
-    {
-      cascade: ['insert', 'update', 'remove'],
-    },
+    modification => modification.type,
   )
-  mods: any[];
+  mod: any[];
 
   @CreateDateColumn() public createdAt: Date;
   @UpdateDateColumn() public updatedAt: Date;

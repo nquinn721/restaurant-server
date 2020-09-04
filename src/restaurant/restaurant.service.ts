@@ -6,6 +6,7 @@ import { Item } from './models/item.entity';
 import { Location } from './models/location.enitity';
 import { Modification } from './models/modification.entity';
 import { Side } from './models/side.entitity';
+import { ModificationType } from './models/modificationType.entity';
 
 @Injectable()
 export class CategoryService extends TypeOrmCrudService<Category> {
@@ -31,6 +32,15 @@ export class LocationService extends TypeOrmCrudService<Location> {
 @Injectable()
 export class ModificationService extends TypeOrmCrudService<Modification> {
   constructor(@InjectRepository(Modification) repo) {
+    super(repo);
+  }
+}
+
+@Injectable()
+export class ModificationTypeService extends TypeOrmCrudService<
+  ModificationType
+> {
+  constructor(@InjectRepository(ModificationType) repo) {
     super(repo);
   }
 }
