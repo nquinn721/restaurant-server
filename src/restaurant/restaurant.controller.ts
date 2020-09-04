@@ -76,6 +76,7 @@ export class ModificationController {
   query: {
     join: {
       item: {},
+      type: {},
     },
   },
 })
