@@ -12,6 +12,7 @@ import {
 } from 'typeorm';
 import { User } from '../../user/models/user.entity';
 import { OrderItem } from './orderItem.entity';
+import { Payment } from './payment.entity';
 
 export enum Status {
   RECIEVED = 'Recieved',
@@ -35,6 +36,15 @@ export class Order extends BaseEntity {
   )
   @JoinColumn()
   items: any[];
+
+  @OneToOne(
+    type => Payment,
+    payment => payment.order,
+    {
+      cascade: ['insert', 'update', 'remove'],
+    },
+  )
+  payment: any;
 
   @Column({ type: 'enum', enum: Status, default: Status.RECIEVED })
   status: string;
