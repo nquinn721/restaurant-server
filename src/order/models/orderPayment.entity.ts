@@ -9,8 +9,8 @@ import {
 } from 'typeorm';
 import { Order } from './order.entity';
 
-@Entity('payment')
-export class Payment extends BaseEntity {
+@Entity('orderpayment')
+export class OrderPayment extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 

@@ -12,7 +12,7 @@ import {
 } from 'typeorm';
 import { User } from '../../user/models/user.entity';
 import { OrderItem } from './orderItem.entity';
-import { Payment } from './payment.entity';
+import { OrderPayment } from './orderPayment.entity';
 
 export enum Status {
   RECIEVED = 'Recieved',
@@ -38,8 +38,8 @@ export class Order extends BaseEntity {
   items: any[];
 
   @OneToOne(
-    type => Payment,
-    payment => payment.order,
+    type => OrderPayment,
+    orderPayment => orderPayment.order,
     {
       cascade: ['insert', 'update', 'remove'],
     },
