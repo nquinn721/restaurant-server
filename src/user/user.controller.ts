@@ -20,10 +20,9 @@ export class UserController {
 
   @Post('checkout')
   async checkout(@Body() { token, total }, @Res() res) {
-    console.log(token, total);
-
+    total = Number(total) * 100;
     await stripe.charges.create({
-      amount: total * 100,
+      amount: parseInt(total),
       currency: 'usd',
       description: 'cool',
       source: token,
