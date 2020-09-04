@@ -15,8 +15,9 @@ import { OrderItem } from './orderItem.entity';
 import { OrderPayment } from './orderPayment.entity';
 
 export enum Status {
-  RECIEVED = 'Recieved',
-  COMPLETE = 'Complete',
+  RECIEVED = 'recieved',
+  STARTED = 'started',
+  COMPLETE = 'complete',
 }
 
 @Entity('order')
