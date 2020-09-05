@@ -24,10 +24,7 @@ export class Modification extends BaseEntity {
   @Column({ type: 'float', nullable: true })
   cost: number;
 
-  @ManyToOne(
-    type => ModificationType,
-    modificationType => modificationType.mod,
-  )
+  @ManyToOne(type => ModificationType)
   type: any;
 
   @CreateDateColumn() public createdAt: Date;

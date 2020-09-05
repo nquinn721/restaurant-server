@@ -18,12 +18,6 @@ export class ModificationType extends BaseEntity {
   @Column({ nullable: true })
   name: string;
 
-  @OneToMany(
-    type => Modification,
-    modification => modification.type,
-  )
-  mod: any[];
-
   @CreateDateColumn() public createdAt: Date;
   @UpdateDateColumn() public updatedAt: Date;
 }
