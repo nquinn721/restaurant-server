@@ -15,6 +15,9 @@ export class Category extends BaseEntity {
   @Column({ nullable: true })
   name: string;
 
+  @Column({ nullable: true })
+  image: string;
+
   @CreateDateColumn() public createdAt: Date;
   @UpdateDateColumn() public updatedAt: Date;
 }

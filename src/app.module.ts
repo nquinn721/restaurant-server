@@ -18,6 +18,8 @@ import { OrderItem } from './order/models/orderItem.entity';
 import { OrderItemSide } from './order/models/orderItemSide.entity';
 import { OrderPayment } from './order/models/orderPayment.entity';
 import { ModificationType } from './restaurant/models/modificationType.entity';
+import { GCloudStorageModule } from '@aginix/gcloud-storage';
+
 const typeormOptions: any = {
   type: 'mysql',
   host: '104.196.139.6',
@@ -55,6 +57,9 @@ if (process.env.NODE_ENV === 'production')
     AuthModule,
     UserModule,
     OrderModule,
+    GCloudStorageModule.withConfig({
+      defaultBucketname: 'restaurant-server',
+    }),
   ],
   controllers: [AppController],
   providers: [AppService],
