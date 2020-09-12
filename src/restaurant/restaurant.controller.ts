@@ -23,12 +23,13 @@ import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import * as path from 'path';
 import { Storage } from '@google-cloud/storage';
+import { unlink } from 'fs';
 
 const gc = new Storage({
   keyFilename: 'restaurant-server-a1580b5368cf.json',
   projectId: 'restaurant-server-288018',
 });
-const bucket = gc.bucket('restaurant');
+const bucket = gc.bucket('restaurant-server');
 
 @Crud({
   model: {
@@ -45,6 +46,7 @@ export class CategoryController {
       storage: diskStorage({
         destination: './uploads',
         filename(req, file, cb) {
+          console.log(file);
           cb(null, file.originalname);
         },
       }),
@@ -52,6 +54,10 @@ export class CategoryController {
   )
   createOne(@UploadedFile() file) {
     bucket.upload(file.path);
+
+    try {
+      unlink(process.cwd() + '/' + file.path, e => {});
+    } catch (e) {}
     return file.originalname;
   }
 }
