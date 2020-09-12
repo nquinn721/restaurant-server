@@ -19,6 +19,7 @@ import { OrderItemSide } from './order/models/orderItemSide.entity';
 import { OrderPayment } from './order/models/orderPayment.entity';
 import { ModificationType } from './restaurant/models/modificationType.entity';
 import { GCloudStorageModule } from '@aginix/gcloud-storage';
+import { MulterModule } from '@nestjs/platform-express';
 
 const typeormOptions: any = {
   type: 'mysql',
@@ -57,8 +58,8 @@ if (process.env.NODE_ENV === 'production')
     AuthModule,
     UserModule,
     OrderModule,
-    GCloudStorageModule.withConfig({
-      defaultBucketname: 'restaurant-server',
+    MulterModule.register({
+      dest: './upload',
     }),
   ],
   controllers: [AppController],

@@ -20,11 +20,16 @@ import { Modification } from './models/modification.entity';
 import { ModificationType } from './models/modificationType.entity';
 import { Side } from './models/side.entitity';
 import { FileInterceptor } from '@nestjs/platform-express';
+import { diskStorage } from 'multer';
 import * as path from 'path';
-import {
-  GCloudStorageFileInterceptor,
-  UploadedFileMetadata,
-} from '@aginix/gcloud-storage';
+import { Storage } from '@google-cloud/storage';
+
+const gc = new Storage({
+  keyFilename: 'restaurant-server-a1580b5368cf.json',
+  projectId: 'restaurant-server-288018',
+});
+const bucket = gc.bucket('restaurant');
+
 @Crud({
   model: {
     type: Category,
@@ -35,9 +40,20 @@ export class CategoryController {
   constructor(public service: CategoryService) {}
 
   @Post('img')
-  @UseInterceptors(GCloudStorageFileInterceptor('file'))
-  createOne(@UploadedFile() file: UploadedFileMetadata) {
+  @UseInterceptors(
+    FileInterceptor('image', {
+      storage: diskStorage({
+        destination: './uploads',
+        filename(req, file, cb) {
+          cb(null, file.originalname);
+        },
+      }),
+    }),
+  )
+  createOne(@UploadedFile() file) {
     console.log(file);
+    bucket.upload(file.path);
+    return true;
   }
 }
 
