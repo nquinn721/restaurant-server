@@ -51,9 +51,8 @@ export class CategoryController {
     }),
   )
   createOne(@UploadedFile() file) {
-    console.log(file);
     bucket.upload(file.path);
-    return true;
+    return file.originalname;
   }
 }
 
