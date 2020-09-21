@@ -51,11 +51,15 @@ export class CategoryController {
       }),
     }),
   )
-  createOne(@UploadedFile() file) {
+  uploadFile(@UploadedFile() file) {
+    console.log(file);
+
     bucket.upload(file.path);
 
     try {
-      unlink(process.cwd() + '/' + file.path, e => {});
+      setTimeout(() => {
+        unlink(process.cwd() + '/uploads', e => {});
+      }, 2000);
     } catch (e) {}
     return file.originalname;
   }
