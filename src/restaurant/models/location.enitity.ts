@@ -33,6 +33,35 @@ export class Location extends BaseEntity {
   @Column({ nullable: true })
   lon: string;
 
+  @Column({ nullable: true })
+  sundayStart: string;
+  @Column({ nullable: true })
+  sundayEnd: string;
+  @Column({ nullable: true })
+  mondayStart: string;
+  @Column({ nullable: true })
+  mondayEnd: string;
+  @Column({ nullable: true })
+  tuesdayStart: string;
+  @Column({ nullable: true })
+  tuesdayEnd: string;
+  @Column({ nullable: true })
+  wednesdayStart: string;
+  @Column({ nullable: true })
+  wednesdayEnd: string;
+  @Column({ nullable: true })
+  thursdayStart: string;
+  @Column({ nullable: true })
+  thursdayEnd: string;
+  @Column({ nullable: true })
+  fridayStart: string;
+  @Column({ nullable: true })
+  fridayEnd: string;
+  @Column({ nullable: true })
+  saturdayStart: string;
+  @Column({ nullable: true })
+  saturdayEnd: string;
+
   @CreateDateColumn() public createdAt: Date;
   @UpdateDateColumn() public updatedAt: Date;
 
