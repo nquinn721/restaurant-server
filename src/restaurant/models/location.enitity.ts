@@ -19,10 +19,16 @@ export class Location extends BaseEntity {
   name: string;
 
   @Column({ nullable: true })
-  address1: string;
+  address: string;
 
   @Column({ nullable: true })
-  address2: string;
+  city: string;
+
+  @Column({ nullable: true })
+  state: string;
+
+  @Column({ nullable: true })
+  zip: string;
 
   @Column({ nullable: true })
   phone: string;
