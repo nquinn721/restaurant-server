@@ -74,7 +74,7 @@ export class Location extends BaseEntity {
   @BeforeInsert()
   @BeforeUpdate()
   async beforeCreate() {
-    const address = this.address1 + ' ' + this.address2;
+    const address = `${this.address} ${this.city} ${this.state} ${this.zip}`;
     const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyAvHC8FkiK6As9_tmLBrWz3NbTtJoQO6Uk`;
     const { data } = await axios.get(url);
 

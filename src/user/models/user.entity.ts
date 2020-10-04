@@ -52,6 +52,12 @@ export class User extends BaseEntity {
   })
   password: string;
 
+  @Column({ nullable: true })
+  mac: string;
+
+  @Column({ nullable: true })
+  pushToken: string;
+
   @CreateDateColumn() public createdAt: Date;
   @UpdateDateColumn() public updatedAt: Date;
 }

@@ -1,3 +1,4 @@
+import { Location } from '../../restaurant/models/location.enitity';
 import {
   Entity,
   Column,
@@ -9,6 +10,7 @@ import {
   OneToMany,
   JoinTable,
   JoinColumn,
+  ManyToOne,
 } from 'typeorm';
 import { User } from '../../user/models/user.entity';
 import { OrderItem } from './orderItem.entity';
@@ -49,6 +51,9 @@ export class Order extends BaseEntity {
 
   @Column({ type: 'enum', enum: Status, default: Status.RECIEVED })
   status: string;
+
+  @ManyToOne(type => Location)
+  location: Location;
 
   @CreateDateColumn() public createdAt: Date;
   @UpdateDateColumn() public updatedAt: Date;
