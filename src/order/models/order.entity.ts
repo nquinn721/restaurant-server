@@ -55,6 +55,12 @@ export class Order extends BaseEntity {
   @ManyToOne(type => Location)
   location: Location;
 
+  @Column({ nullable: true })
+  name: string;
+
+  @Column({ nullable: true })
+  notes: string;
+
   @CreateDateColumn() public createdAt: Date;
   @UpdateDateColumn() public updatedAt: Date;
 }
